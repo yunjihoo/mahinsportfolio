@@ -14,12 +14,12 @@
             line-height: 1.6;
             color: #333;
             background-color: #1a1a1a;
-            padding-top: 60px; /* Adjust padding to prevent overlap with fixed header */
+            padding-top: 60px;
         }
         .container {
             width: 85%;
             margin: auto;
-            overflow: visible; /* Ensure dropdowns are not clipped */
+            overflow: visible;
         }
         header {
             background: #111;
@@ -30,21 +30,25 @@
             top: 0;
             left: 0;
             z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         header nav {
             display: flex;
-            flex-direction: row; /* Ensure horizontal layout */
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
         }
         header ul {
             display: flex;
-            flex-direction: row; /* Horizontal layout */
             padding: 0;
             list-style: none;
+            margin: 0;
+            flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
         }
         header li {
             position: relative;
-            padding: 0 10px; /* Adjust padding for smaller screens */
+            padding: 0 15px;
         }
         header a {
             color: #fff;
@@ -53,20 +57,25 @@
             font-size: 16px;
             display: block;
             padding: 10px;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #00aaff;
         }
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%; /* Ensure dropdown appears below the menu item */
+            top: 100%;
             right: 0;
             background: #222;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 5px;
-            min-width: 250px;
-            z-index: 200; /* Increased z-index to ensure visibility */
+            min-width: 200px;
+            z-index: 200;
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateY(-10px);
+            padding: 5px;
         }
         header li:hover .dropdown-content {
             display: block;
@@ -75,19 +84,16 @@
         }
         .dropdown-content h2 {
             color: #fff;
-            padding: 10px;
+            padding: 8px 10px;
             background: #333;
             margin: 0;
-            font-size: 16px; /* Adjust font size */
+            border-bottom: 2px solid #00aaff;
         }
         .dropdown-content p {
             color: #fff;
-            padding: 10px;
-            display: flex;
-            align-items: center; /* Align text and icons */
-            font-size: 14px; /* Reduced font size for better fit */
-            margin: 0; /* Ensure no extra margin */
-            text-transform: none; /* Ensure text is not capitalized */
+            padding: 5px 10px;
+            margin: 0;
+            line-height: 1.4;
         }
         .dropdown-content a {
             color: #00aaff;
@@ -98,33 +104,37 @@
         }
         .dropdown-content .contact-info {
             display: flex;
-            align-items: center;
-            padding: 10px;
+            align-items: flex-start;
+            padding: 5px 0;
+            margin: 0;
         }
         .dropdown-content .contact-info img {
-            border-radius: 50%; /* Round icons */
-            width: 25px; /* Increased size */
-            height: 25px; /* Increased size */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
             margin-right: 10px;
+        }
+        .dropdown-content .contact-info p {
+            margin: 0;
+            line-height: 1.2;
         }
         .linkedin-contact {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
         .linkedin-contact img {
             margin-right: 8px;
-            width: 25px; /* Increased size */
-            height: 25px; /* Increased size */
-            border-radius: 50%; /* Round the LinkedIn image */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
         }
         footer {
             background: #111;
             color: #aaa;
             text-align: center;
             padding: 30px 0;
-            margin-top: 30px;
-            position: fixed;
-            bottom: 0;
+            margin-top: auto;
+            position: relative;
             width: 100%;
         }
         footer p {
@@ -152,27 +162,48 @@
             transition: opacity 0.5s ease;
         }
         #loadingScreen img {
-            width: 400px;
+            width: 100px;
             height: auto;
         }
-
-        /* Media query for mobile devices */
+        .about-me-section {
+            text-align: center;
+            margin-top: 120px;
+            color: #fff;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .about-me-section img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
         @media (max-width: 768px) {
             header nav {
-                justify-content: center; /* Center content on small screens */
+                flex-wrap: wrap; /* Allow wrapping */
             }
-
             header ul {
-                justify-content: center;
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center; /* Center items on smaller screens */
             }
-
             header li {
-                padding: 0 5px; /* Further adjust padding for smaller screens */
+                padding: 5px 10px; /* Adjust padding for smaller screens */
             }
-
             .dropdown-content {
-                right: auto; /* Ensure dropdown appears below the item */
-                left: 0; /* Align to the left for better visibility on small screens */
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header a {
+                font-size: 14px;
+                padding: 8px;
+            }
+            header nav {
+                padding: 0 10px;
             }
         }
     </style>
@@ -202,7 +233,7 @@
                             </div>
                             <div class="contact-info linkedin-contact">
                                 <img src="images/linkedinimage.png" alt="LinkedIn Logo">
-                                <p>LinkedIn: <a href="https://www.linkedin.com/in/mahinnmohammed" target="_blank">www.linkedin.com/in/mahinnmohammed</a></p>
+                                <p>LinkedIn: <a href="https://www.linkedin.com/in/mahinnmohammed" target="_blank">LinkedIn Profile</a></p>
                             </div>
                         </div>
                     </li>
@@ -211,11 +242,11 @@
         </div>
     </header>
 
-    <section class="content">
-        <div class="container">
-            <h1>Welcome to My Tech Website</h1>
-            <p>Explore my projects, skills, and get in touch. Learn more about my journey and achievements.</p>
-        </div>
+    <section class="about-me-section">
+        <img src="images/about-me-photo.jpg" alt="About Me Photo">
+        <h1>About Me</h1>
+        <p>I am a mechanical design engineer with a strong background in technical skills and a passion for innovation. My expertise includes SolidWorks, AutoCAD, Creo, and ANSYS, where I have consistently applied my knowledge to solve complex design challenges. I take pride in my ability to deliver high-quality work that meets industry standards.</p>
+        <p>One of my most significant achievements is winning the Best Project Award for my work on a safety helmet design. This project not only demonstrated my technical proficiency but also my commitment to improving safety through innovative engineering solutions.</p>
     </section>
 
     <footer>
@@ -250,7 +281,7 @@
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
-            }, 500);
+            }, 500); // This timeout matches the opacity transition time for a smooth fade-out
         });
     </script>
 </body>
