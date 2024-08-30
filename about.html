@@ -36,11 +36,15 @@
             left: 0;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center; /* Center navigation items */
         }
         header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            max-width: 1200px; /* Optional: max width for larger screens */
             padding: 0 20px;
         }
         header ul {
@@ -126,6 +130,9 @@
             margin: 0;
             line-height: 1.2;
             font-size: 14px; /* Adjust font size */
+            white-space: nowrap; /* Prevent line breaks */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
         }
         .linkedin-contact {
             display: flex;
@@ -190,23 +197,26 @@
         }
         @media (max-width: 768px) {
             header nav {
-                flex-direction: column;
+                flex-direction: row; /* Keep header horizontal */
+                flex-wrap: wrap; /* Allow wrapping if needed */
+                justify-content: center; /* Center navigation items */
             }
             
             header ul {
-                flex-direction: column;
+                flex-direction: row; /* Keep list items in a row */
                 align-items: center;
+                flex-wrap: wrap; /* Allow wrapping if needed */
             }
             
             header li {
-                padding: 10px 0;
+                padding: 10px 5px; /* Adjust padding */
             }
             
             .dropdown-content {
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 90%;
+                width: 90%; /* Scale dropdown width */
             }
         }
 
