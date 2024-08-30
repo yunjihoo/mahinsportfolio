@@ -14,6 +14,11 @@
             line-height: 1.6;
             color: #333;
             background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             padding-top: 60px;
         }
         .container {
@@ -37,14 +42,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
         }
         header ul {
             display: flex;
             padding: 0;
             list-style: none;
             margin: 0;
-            flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
         }
         header li {
             position: relative;
@@ -76,6 +79,7 @@
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateY(-10px);
             padding: 5px;
+            box-sizing: border-box; /* Ensure padding is included in the width */
         }
         header li:hover .dropdown-content {
             display: block;
@@ -88,12 +92,14 @@
             background: #333;
             margin: 0;
             border-bottom: 2px solid #00aaff;
+            font-size: 16px; /* Adjust font size */
         }
         .dropdown-content p {
             color: #fff;
             padding: 5px 10px;
             margin: 0;
             line-height: 1.4;
+            font-size: 14px; /* Adjust font size */
         }
         .dropdown-content a {
             color: #00aaff;
@@ -104,29 +110,33 @@
         }
         .dropdown-content .contact-info {
             display: flex;
-            align-items: flex-start;
+            align-items: center; /* Center items vertically */
             padding: 5px 0;
             margin: 0;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
         }
         .dropdown-content .contact-info img {
             border-radius: 50%;
             width: 30px;
             height: 30px;
             margin-right: 10px;
+            max-width: 100%; /* Ensure image doesn't overflow */
         }
         .dropdown-content .contact-info p {
             margin: 0;
             line-height: 1.2;
+            font-size: 14px; /* Adjust font size */
         }
         .linkedin-contact {
             display: flex;
-            align-items: flex-start;
+            align-items: center; /* Center items vertically */
         }
         .linkedin-contact img {
             margin-right: 8px;
             width: 30px;
             height: 30px;
             border-radius: 50%;
+            max-width: 100%; /* Ensure image doesn't overflow */
         }
         footer {
             background: #111;
@@ -180,15 +190,18 @@
         }
         @media (max-width: 768px) {
             header nav {
-                flex-wrap: wrap; /* Allow wrapping */
+                flex-direction: column;
             }
+            
             header ul {
-                flex-wrap: wrap; /* Allow wrapping */
-                justify-content: center; /* Center items on smaller screens */
+                flex-direction: column;
+                align-items: center;
             }
+            
             header li {
-                padding: 5px 10px; /* Adjust padding for smaller screens */
+                padding: 10px 0;
             }
+            
             .dropdown-content {
                 right: auto;
                 left: 50%;
@@ -202,13 +215,21 @@
                 font-size: 14px;
                 padding: 8px;
             }
+            
             header nav {
                 padding: 0 10px;
             }
+            
             .dropdown-content {
                 width: 100%; /* Ensure dropdown takes full width on very small screens */
                 left: 0;
                 transform: none; /* Remove horizontal centering */
+            }
+            .dropdown-content h2 {
+                font-size: 14px; /* Adjust font size */
+            }
+            .dropdown-content p {
+                font-size: 12px; /* Adjust font size */
             }
         }
     </style>
