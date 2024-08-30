@@ -37,15 +37,14 @@
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the left */
         }
         header nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
             width: 100%;
             max-width: 1200px; /* Optional: max width for larger screens */
-            padding: 0 20px;
         }
         header ul {
             display: flex;
@@ -73,7 +72,7 @@
             display: none;
             position: absolute;
             top: 100%;
-            right: 0;
+            left: 0;
             background: #222;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 5px;
@@ -98,6 +97,7 @@
             margin: 0;
             border-bottom: 2px solid #00aaff;
             font-size: 16px;
+            text-align: center;
         }
         .dropdown-content p {
             color: #fff;
@@ -105,6 +105,7 @@
             margin: 0;
             line-height: 1.4;
             font-size: 14px;
+            text-align: center;
         }
         .dropdown-content a {
             color: #00aaff;
@@ -119,6 +120,7 @@
             padding: 5px 0;
             margin: 0;
             flex-wrap: wrap;
+            justify-content: center; /* Center align items */
         }
         .dropdown-content .contact-info img {
             border-radius: 50%;
@@ -203,7 +205,7 @@
             header nav {
                 flex-direction: row; /* Keep header horizontal */
                 flex-wrap: wrap; /* Allow wrapping if needed */
-                justify-content: center; /* Center navigation items */
+                justify-content: flex-start; /* Align items to the left */
             }
             
             header ul {
@@ -217,9 +219,7 @@
             }
             
             .dropdown-content {
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
+                left: 0; /* Align to left */
                 width: 90%; /* Scale dropdown width */
             }
         }
@@ -284,7 +284,7 @@
 
     <section class="content-section">
         <h2>Mechanical Engineering</h2>
-        <p>Mechanical engineering is a diverse field that applies principles of physics and materials science for the design, analysis, manufacturing, and maintenance of mechanical systems. It plays a crucial role in industries such as automotive, aerospace, energy, and manufacturing. As mechanical engineers, we work on creating efficient and sustainable solutions that address real-world challenges.</p>
+        <p>Mechanical engineering is a diverse field that applies principles of physics and materials science for the design, analysis, manufacturing, and maintenance of mechanical systems. It plays a crucial role in industries such as automotive, aerospace, energy, and manufacturing. Mechanical engineers use their expertise to innovate, improve efficiency, and ensure safety in various applications.</p>
         
         <h2>Engineering Fixtures</h2>
         <p>Engineering fixtures are essential tools used in various manufacturing processes. They ensure precision, accuracy, and repeatability in production, reducing errors and improving efficiency. Fixtures are designed for various applications, including welding, machining, assembly, and inspection. They play a key role in ensuring that engineering components meet quality and safety standards.</p>
