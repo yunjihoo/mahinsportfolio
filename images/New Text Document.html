@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech Website</title>
+    <style>
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #1a1a1a;
+            padding-top: 60px; /* Adjust padding to prevent overlap with fixed header */
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: visible; /* Ensure dropdowns are not clipped */
+        }
+        header {
+            background: #111;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        header nav {
+            display: flex;
+            justify-content: flex-end;
+        }
+        header ul {
+            display: flex;
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            position: relative;
+            padding: 0 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            display: block;
+            padding: 10px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; /* Ensure dropdown appears below the menu item */
+            right: 0;
+            background: #222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            min-width: 200px;
+            z-index: 200; /* Increased z-index to ensure visibility */
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(-10px);
+        }
+        header li:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown-content a {
+            color: #00aaff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .dropdown-content a:hover {
+            background: #333;
+        }
+        .linkedin-contact {
+            display: flex;
+            align-items: center;
+        }
+        .linkedin-contact img {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        #loadingScreen img {
+            width: 100px;
+            height: auto;
+        }
+        .about-me {
+            background-color: #222;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .about-me h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #00aaff;
+        }
+        .about-me p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadingScreen">
+        <img src="images/loading.gif" alt="Loading...">
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#">Technical Skills</a>
+                        <div class="dropdown-content" id="skillsDropdown">
+                            <h2>Technical Skills</h2>
+                            <p><strong>SolidWorks</strong> - Expert in 3D modeling and simulation.</p>
+                            <p><strong>AutoCAD</strong> - Skilled in drafting and design.</p>
+                            <p><strong>Creo</strong> - Proficient in parametric and direct modeling.</p>
+                            <p><strong>ANSYS</strong> - Experienced in finite element analysis.</p>
+                        </div>
+                    </li>
+                    <li><a href="#">Contact</a>
+                        <div class="dropdown-content" id="contactDropdown">
+                            <h2>Contact Me</h2>
+                            <p>Email: <a href="mailto:mohammedmahin31@gmail.com">mohammedmahin31@gmail.com</a></p>
+                            <p>Phone: <a href="tel:+919597250853">+91 95972 50853</a></p>
+                            <p class="linkedin-contact">
+                                <img src="images/linkedinimage.png" alt="LinkedIn Logo">
+                                LinkedIn: <a href="https://www.linkedin.com/in/mahinnmohammed" target="_blank">LinkedIn Profile</a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-me">
+        <div class="container">
+            <h1>About Me</h1>
+            <p>I am a mechanical design engineer with a passion for innovation and problem-solving. My project on safety helmets won the Best Project Award, showcasing my dedication to creating solutions that improve safety and efficiency. My technical expertise includes SolidWorks, AutoCAD, Creo, and ANSYS, where I have developed a strong proficiency in design and simulation.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Tech Vision © 2024</p>
+        <p>Connect with us on <a href="https://www.linkedin.com/in/mahinnmohammed" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href && href !== '#' && !href.startsWith('http')) {
+                        e.preventDefault();
+                        document.body.classList.add('fade-exit');
+                        
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 500);
+                    }
+                });
+            });
+            
+            document.body.classList.add('page-active');
+        });
+
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 750);
+        });
+    </script>
+</body>
+</html>
