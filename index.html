@@ -12,14 +12,19 @@
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #fff; /* Set text color to white */
             background-color: #1a1a1a;
-            padding-top: 60px; /* Adjust padding to prevent overlap with fixed header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 60px;
         }
         .container {
             width: 85%;
             margin: auto;
-            overflow: visible; /* Ensure dropdowns are not clipped */
+            overflow: visible;
         }
         header {
             background: #111;
@@ -30,19 +35,27 @@
             top: 0;
             left: 0;
             z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
         }
         header nav {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* Optional: max width for larger screens */
+            padding: 0 20px;
         }
         header ul {
             display: flex;
             padding: 0;
             list-style: none;
+            margin: 0;
         }
         header li {
             position: relative;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         header a {
             color: #fff;
@@ -51,21 +64,26 @@
             font-size: 16px;
             display: block;
             padding: 10px;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #00aaff;
         }
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%; /* Ensure dropdown appears below the menu item */
+            top: 100%;
             right: 0;
             background: #222;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             border-radius: 5px;
-            min-width: 200px; /* Reduced width for compactness */
-            z-index: 200; /* Increased z-index to ensure visibility */
+            min-width: 200px;
+            z-index: 200;
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateY(-10px);
-            padding: 5px; /* Reduced padding for compactness */
+            padding: 5px;
+            box-sizing: border-box;
         }
         header li:hover .dropdown-content {
             display: block;
@@ -74,16 +92,18 @@
         }
         .dropdown-content h2 {
             color: #fff;
-            padding: 8px 10px; /* Adjusted padding for compactness */
+            padding: 8px 10px;
             background: #333;
             margin: 0;
-            border-bottom: 2px solid #00aaff; /* Added border to the title */
+            border-bottom: 2px solid #00aaff;
+            font-size: 16px;
         }
         .dropdown-content p {
             color: #fff;
-            padding: 5px 10px; /* Reduced padding for compactness */
+            padding: 5px 10px;
             margin: 0;
-            line-height: 1.4; /* Reduced line spacing */
+            line-height: 1.4;
+            font-size: 14px;
         }
         .dropdown-content a {
             color: #00aaff;
@@ -94,38 +114,44 @@
         }
         .dropdown-content .contact-info {
             display: flex;
-            align-items: flex-start; /* Align items to the start */
-            padding: 5px 0; /* Reduced padding for compactness */
-            margin: 0; /* Removed margin */
+            align-items: center;
+            padding: 5px 0;
+            margin: 0;
+            flex-wrap: wrap;
         }
         .dropdown-content .contact-info img {
-            border-radius: 50%; /* Round icons */
-            width: 30px; /* Increased size */
-            height: 30px; /* Increased size */
-            margin-right: 10px; /* Space between icon and text */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            max-width: 100%;
         }
         .dropdown-content .contact-info p {
-            margin: 0; /* Remove margin for compactness */
-            line-height: 1.2; /* Reduced line spacing */
+            margin: 0;
+            line-height: 1.2;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .linkedin-contact {
             display: flex;
-            align-items: flex-start; /* Align items to the start */
+            align-items: center;
         }
         .linkedin-contact img {
             margin-right: 8px;
-            width: 30px; /* Increased size */
-            height: 30px; /* Increased size */
-            border-radius: 50%; /* Round the LinkedIn image */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            max-width: 100%;
         }
         footer {
             background: #111;
             color: #aaa;
             text-align: center;
             padding: 30px 0;
-            margin-top: 30px;
-            position: fixed;
-            bottom: 0;
+            margin-top: auto;
+            position: relative;
             width: 100%;
         }
         footer p {
@@ -153,8 +179,71 @@
             transition: opacity 0.5s ease;
         }
         #loadingScreen img {
-            width: 200px;
+            width: 100px;
             height: auto;
+        }
+        .content-section {
+            text-align: center;
+            color: #fff;
+            max-width: 800px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+        .content-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: row; /* Keep header horizontal */
+                flex-wrap: wrap; /* Allow wrapping if needed */
+                justify-content: center; /* Center navigation items */
+            }
+            
+            header ul {
+                flex-direction: row; /* Keep list items in a row */
+                align-items: center;
+                flex-wrap: wrap; /* Allow wrapping if needed */
+            }
+            
+            header li {
+                padding: 10px 5px; /* Adjust padding */
+            }
+            
+            .dropdown-content {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%; /* Scale dropdown width */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header a {
+                font-size: 14px;
+                padding: 8px;
+            }
+            
+            header nav {
+                padding: 0 10px;
+            }
+            
+            .dropdown-content {
+                width: 100%; /* Ensure dropdown takes full width on very small screens */
+                left: 0;
+                transform: none; /* Remove horizontal centering */
+            }
+            .dropdown-content h2 {
+                font-size: 14px; /* Adjust font size */
+            }
+            .dropdown-content p {
+                font-size: 12px; /* Adjust font size */
+            }
         }
     </style>
 </head>
@@ -192,11 +281,12 @@
         </div>
     </header>
 
-    <section class="content">
-        <div class="container">
-            <h1>Welcome to My Tech Website</h1>
-            <p>Explore my projects, skills, and get in touch. Learn more about my journey and achievements.</p>
-        </div>
+    <section class="content-section">
+        <h2>Mechanical Engineering</h2>
+        <p>Mechanical engineering is a diverse field that applies principles of physics and materials science for the design, analysis, manufacturing, and maintenance of mechanical systems. It plays a crucial role in industries such as automotive, aerospace, energy, and manufacturing. As mechanical engineers, we work on creating efficient and sustainable solutions that address real-world challenges.</p>
+        
+        <h2>Engineering Fixtures</h2>
+        <p>Engineering fixtures are critical tools used to hold and support components during manufacturing processes. They ensure precision, accuracy, and repeatability in production, reducing errors and improving efficiency. Fixtures are designed for various applications, including welding, machining, assembly, and inspection. They play a key role in ensuring that engineering components meet quality and safety standards.</p>
     </section>
 
     <footer>
@@ -231,7 +321,7 @@
             loadingScreen.style.opacity = '0';
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
-            }, 500); // Match the duration of the fade-out transition
+            }, 500); // This timeout matches the opacity transition time for a smooth fade-out
         });
     </script>
 </body>
